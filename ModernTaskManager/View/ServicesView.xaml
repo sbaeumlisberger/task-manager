@@ -8,12 +8,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <DataGrid ItemsSource="{Binding Services, Mode=OneWay}" AutoGenerateColumns="False" RowHeaderWidth="0" Margin="0,8,0,0" SelectionMode="Single">
+    <DataGrid
+        RowHeight="30"
+        ItemsSource="{Binding Services, Mode=OneWay}" 
+        AutoGenerateColumns="False" 
+        RowHeaderWidth="0"
+        Margin="0,8,0,0" 
+        SelectionMode="Single">
         <DataGrid.Columns>
             <DataGridTextColumn Width="Auto" Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
             <DataGridTextColumn Width="Auto" Header="PID" Binding="{Binding PID}" IsReadOnly="True"/>
-            <DataGridTextColumn Width="Auto" Header="Status" Binding="{Binding Status}" IsReadOnly="True"/> 
-            <DataGridTextColumn Width="*" Header="Description" Binding="{Binding Description}" IsReadOnly="True"/>
+            <DataGridTextColumn Width="Auto" Header="Status" Binding="{Binding Status}" IsReadOnly="True"/>
+            <DataGridTextColumn Width="Auto" Header="Description" Binding="{Binding Description}" IsReadOnly="True"/>
         </DataGrid.Columns>
         <DataGrid.Resources>
             <ContextMenu 

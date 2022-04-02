@@ -20,7 +20,8 @@
 
     </UserControl.Resources>
 
-    <DataGrid 
+    <DataGrid
+        RowHeight="30"
         Margin="0,8,0,0"        
         ItemsSource="{Binding Processes, Mode=OneWay}"
         AutoGenerateColumns="False" 
@@ -37,7 +38,7 @@
                     </DataTemplate>
                 </DataGridTemplateColumn.CellTemplate>
             </DataGridTemplateColumn>
-            <DataGridTextColumn Width="Auto" Header="ID" Binding="{Binding ID}" IsReadOnly="True" FontSize="12"/>           
+            <DataGridTextColumn Width="Auto" Header="ID" Binding="{Binding ID}" IsReadOnly="True" FontSize="12"/>
             <DataGridTextColumn Width="Auto" Header="Uptime" Binding="{Binding UptimeString}" IsReadOnly="True" FontSize="12" SortMemberPath="Uptime"/>
             <DataGridTextColumn Width="Auto" Header="Ports" Binding="{Binding Ports}" IsReadOnly="True" FontSize="12"/>
         </DataGrid.Columns>

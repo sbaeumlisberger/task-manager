@@ -44,12 +44,12 @@ namespace TaskManager.ViewModel
             LoadProperties();
         }
 
-        private void LoadProperties()
+        private async void LoadProperties()
         {
             Status = service.Status.ToString();
 
             string objPath = string.Format("Win32_Service.Name='{0}'", service.ServiceName);
-            using (ManagementObject service = new ManagementObject(new ManagementPath(objPath)))
+            using (ManagementObject service = await Task.Run(() => new ManagementObject(new ManagementPath(objPath))))
             {
                 Description = (string)service["Description"];
                 int pid = Convert.ToInt32(service["ProcessId"]);

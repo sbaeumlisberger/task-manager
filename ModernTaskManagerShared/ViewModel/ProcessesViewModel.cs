@@ -81,7 +81,7 @@ namespace TaskManager.ViewModel
             UpdateObservableProcessesCollection();
         }
 
-        public void UpdateObservableProcessesCollection()
+        public async void UpdateObservableProcessesCollection()
         {
             List<ProcessViewModel> viewModels;
             if (searchQuery == "")
@@ -101,15 +101,15 @@ namespace TaskManager.ViewModel
 
             if (!Processes.Any())
             {
-                Task.Run(async () =>
+                // freezes UI
+                // Processes = new ObservableCollection<ProcessViewModel>(viewModels);
+
+                // TODO: breaks virutalization
+                foreach (var vm in viewModels)
                 {
-                    foreach (var vm in viewModels)
-                    {
-                        await Task.Delay(1);
-                        Dispatch(() => Processes.Add(vm));
-                    }
-                });
-                //Processes = new ObservableCollection<ProcessViewModel>(viewModels);
+                    await Task.Delay(1);
+                    Processes.Add(vm);
+                }           
             }
             else
             {
