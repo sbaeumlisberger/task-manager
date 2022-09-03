@@ -11,34 +11,29 @@
              d:DesignHeight="600" d:DesignWidth="600">
 
     <UserControl.Resources>
-
         <converter:PathToImageSourceConverter x:Key="PathToImageSourceConverter"/>
-
-        <Style TargetType="DataGridCell">
-            <Setter Property="FontSize" Value="12"/>
-        </Style>
-
     </UserControl.Resources>
 
     <DataGrid
-        RowHeight="30"
+        RowHeight="32"
         Margin="0,8,0,0"        
         ItemsSource="{Binding Processes, Mode=OneWay}"
         AutoGenerateColumns="False" 
         RowHeaderWidth="0"
-        SelectionMode="Single">
+        SelectionMode="Single"
+        DataGrid.GridLinesVisibility="Vertical">
         <DataGrid.Columns>
             <DataGridTemplateColumn Width="300" Header="Name" SortMemberPath="Name">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Image Margin="8,0,0,0" Width="16" Source="{Binding Path, Converter={StaticResource PathToImageSourceConverter}}"/>
-                            <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Text="{Binding Name}" />
+                            <Image Margin="12,0,0,0" Width="16" Source="{Binding Path, Converter={StaticResource PathToImageSourceConverter}}"/>
+                            <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Text="{Binding Name}" FontSize="12"/>
                         </StackPanel>
                     </DataTemplate>
                 </DataGridTemplateColumn.CellTemplate>
             </DataGridTemplateColumn>
-            <DataGridTextColumn Width="Auto" Header="ID" Binding="{Binding ID}" IsReadOnly="True" FontSize="12"/>
+            <DataGridTextColumn Width="Auto" Header="PID" Binding="{Binding ID}" IsReadOnly="True" FontSize="12"/>
             <DataGridTextColumn Width="Auto" Header="Uptime" Binding="{Binding UptimeString}" IsReadOnly="True" FontSize="12" SortMemberPath="Uptime"/>
             <DataGridTextColumn Width="Auto" Header="Ports" Binding="{Binding Ports}" IsReadOnly="True" FontSize="12"/>
         </DataGrid.Columns>

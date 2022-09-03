@@ -9,12 +9,13 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <DataGrid
-        RowHeight="30"
+        RowHeight="32"
         ItemsSource="{Binding Services, Mode=OneWay}" 
         AutoGenerateColumns="False" 
         RowHeaderWidth="0"
         Margin="0,8,0,0" 
-        SelectionMode="Single">
+        SelectionMode="Single"
+        DataGrid.GridLinesVisibility="Vertical">
         <DataGrid.Columns>
             <DataGridTextColumn Width="Auto" Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
             <DataGridTextColumn Width="Auto" Header="PID" Binding="{Binding PID}" IsReadOnly="True"/>

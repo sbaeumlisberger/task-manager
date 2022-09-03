@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ModernWpfUI" Version="0.9.4" />
+    <PackageReference Include="ModernWpfUI" Version="0.9.6" />
     <PackageReference Include="RestoreWindowPlace" Version="2.1.0" />
   </ItemGroup>
 
